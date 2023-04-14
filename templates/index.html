@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>IPL Score Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+    <div><span class="span">Made by SYED ALI TAQI</span></div>
+    <div class="result" style="color:red; font-size:20px">
+        {{prediction}}
+    </div>
+    <div class="h">
+        <h1>IPL Score Prediction</h1>
+    </div>
+    <form action="/predict" method="post">
+        <div class="box">
+            <div class="x">
+                <label for="">Batting Team</label><br>
+                <select name="bat_team" required="required">
+                    <option disabled selected>Select</option>
+                    {%for i in ['Kolkata Knight Riders', 'Chennai Super Kings', 'Rajasthan Royals',
+                    'Mumbai Indians', 'Deccan Chargers', 'Kings XI Punjab',
+                    'Royal Challengers Bangalore', 'Delhi Daredevils',
+                    'Kochi Tuskers Kerala', 'Pune Warriors', 'Sunrisers Hyderabad',
+                    'Rising Pune Supergiants', 'Gujarat Lions',
+                    'Rising Pune Supergiant']%}
+                    <option >{{i}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="x">
+                <label for="">Bowling Team</label><br>
+                <select name="bowl_team" required="required">
+                    <option disabled selected>Select</option>
+                    {%for i in ['Kolkata Knight Riders', 'Chennai Super Kings', 'Rajasthan Royals',
+                    'Mumbai Indians', 'Deccan Chargers', 'Kings XI Punjab',
+                    'Royal Challengers Bangalore', 'Delhi Daredevils',
+                    'Kochi Tuskers Kerala', 'Pune Warriors', 'Sunrisers Hyderabad',
+                    'Rising Pune Supergiants', 'Gujarat Lions',
+                    'Rising Pune Supergiant']%}
+                    <option >{{i}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="x">
+                <label for="">Runs</label><br>
+                <input type="text" name="runs" required="required" placeholder="Enter runs">
+            </div>
+            <div class="x">
+                <label for="">Overs</label><br>
+                <input type="text" name="overs" required="required" placeholder="Enter overs">
+            </div>
+            <div class="x">
+                <label for="">Runs in last 5 overs</label><br>
+                <input type="text" name="runs_last_5" required="required" placeholder="Enter runs in last 5 overs">
+            </div>
+            <div class="x">
+                <label for="">Wickets in last 5 overs</label><br>
+                <select name="wickets_last_5" required="required">
+                    <option disabled selected>Select</option>
+                    {%for i in range(0,10)%}
+                    <option >{{i}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="button"><input type="submit" class="btn"></div>
+        </div>
+    </form>
+</body>
+
+</html>
